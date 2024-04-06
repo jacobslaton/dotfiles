@@ -17,12 +17,12 @@
 Run this command to link the dotfiles in the given folder.
 
 ```
-stow -v -R -t $HOME <folder>
+stow -vRt $HOME <folder>
 ```
 
 Run this command to unlink the dotfiles from the given folder.
 
 ```
-stow -v -D -t $HOME <folder>
+stow -vDt $HOME <folder>
 ```
 
