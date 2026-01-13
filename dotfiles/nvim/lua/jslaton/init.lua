@@ -5,12 +5,14 @@ vim.keymap.set("n", "<leader>l", vim.cmd.Lazy)
 -- Line Numbers
 vim.opt.nu = true
 vim.opt.relativenumber = true
+-- Invisible Characters
+vim.opt.list = true
+vim.opt.listchars = { eol = "\\u00ac", tab = "-->", space = "\\u00b7" }
 -- Tabs
+vim.opt.expandtab = false
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 0
-vim.opt.expandtab = true
-vim.opt.smartindent = true
 vim.g.python_recommended_style = 0
 -- Start lazy.nvim
 require("jslaton.lazy")
