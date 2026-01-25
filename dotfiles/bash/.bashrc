@@ -1,10 +1,14 @@
 # Customize command prompt
 build_ps1_func() {
-    PS1="┌[\e[32m\]\u\[\e[0m\]@\e[32m\]\h\e[0m:\e[34m\]\w\e[0m\] \e[35m\]bash\e[0m\]"
-    if [[ "$(git rev-parse --git-dir 2> /dev/null)" == *.git ]]; then
-        PS1+=" \e[33m\]$(git rev-parse --abbrev-ref HEAD)\e[0m\]"
-    fi
-    PS1+="]\n└─> "
+	PS1="┌[\e[32m\]\u\[\e[0m\]@\e[32m\]\h\e[0m:\e[34m\]\w\e[0m\] \e[35m\]bash\e[0m\]"
+	if [[ "$(git rev-parse --git-dir 2> /dev/null)" == *.git ]]; then
+		PS1+=" \e[33m\]$(git rev-parse --abbrev-ref HEAD)\e[0m\]"
+	fi
+	if [ -n "$VIRTUAL_ENV" ]; then
+		regex="s/$(echo ~ | sed 's/\//\\\//g')/~/"
+		PS1+=" \e[36m\]$(echo "$VIRTUAL_ENV" | sed "$regex")\e[0m\]"
+	fi
+	PS1+="]\n└─> "
 }
 PROMPT_COMMAND='build_ps1_func'
 
@@ -14,7 +18,7 @@ alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 md() {
-    mkdir -p "$1"
-    cd "$1"
+	mkdir -p "$1"
+	cd "$1"
 }
 
