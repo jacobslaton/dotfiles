@@ -16,6 +16,16 @@ return {
 			})
 		end, {})
 		vim.keymap.set("n", "<leader>D", builtin.diagnostics, {})
+		vim.keymap.set("n", "<leader>fr", builtin.lsp_references, {})
+		vim.keymap.set("n", "<leader>fs", function()
+			builtin.lsp_document_symbols({
+				symbols = {
+					"class",
+					"function",
+					"method",
+				},
+			})
+		end, {})
 		-- Background
 		vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
 		vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "none" })
