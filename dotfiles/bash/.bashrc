@@ -22,3 +22,5 @@ md() {
 	cd "$1"
 }
 
+# nvm
+source /usr/share/nvm/init-nvm.sh
