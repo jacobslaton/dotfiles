@@ -14,13 +14,12 @@ return {
 				markdown = { "prettier" },
 				lua = { "stylua" },
 				cs = { "csharpier" },
+				python = { "ruff_fix", "ruff_format", "isort", "black" },
 			},
 		})
 		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
 			conform.format({
-				lsp_fallback = true,
 				async = false,
-				timeout_ms = 1000,
 			})
 		end, {})
 	end,

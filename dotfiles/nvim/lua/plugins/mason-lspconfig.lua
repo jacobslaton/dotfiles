@@ -22,14 +22,19 @@ return {
 						settings = {
 							pylsp = {
 								plugins = {
-									pycodestyle = {
-										ignore = {
-											"E302",
-											"E305",
-											"W191",
-											"W391",
-										}
-									}
+									pycodestyle = { enabled = false },
+									pyflakes = { enabled = false },
+									mccabe = { enabled = false },
+									ruff = {
+										enabled = true,
+										format = { "I" },
+										extendSelect = { "E", "W", "F", "I", "B", "UP" },
+										lineLength = 128,
+									},
+									black = {
+										enabled = true,
+										lineLength = 128,
+									},
 								}
 							}
 						}
