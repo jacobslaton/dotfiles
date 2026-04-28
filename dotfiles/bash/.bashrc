@@ -1,8 +1,11 @@
 # Customize command prompt
 build_ps1_func() {
 	PS1="┌[\e[32m\]\u\[\e[0m\]@\e[32m\]\h\e[0m:\e[34m\]\w\e[0m\] \e[35m\]bash\e[0m\]"
-	if [[ "$(git rev-parse --git-dir 2> /dev/null)" == *.git ]]; then
-		PS1+=" \e[33m\]$(git rev-parse --abbrev-ref HEAD)\e[0m\]"
+	if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+		BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+		if [ -n "$BRANCH" ]; then
+			PS1+=" \e[33m\]${BRANCH}\e[0m\]"
+		fi
 	fi
 	if [ -n "$VIRTUAL_ENV" ]; then
 		regex="s/$(echo ~ | sed 's/\//\\\//g')/~/"
