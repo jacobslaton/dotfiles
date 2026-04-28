@@ -10,12 +10,15 @@ vim.g.netrw_bufsettings = "noma nomod nu rnu nobl nowrap ro"
 -- Invisible Characters
 vim.opt.list = true
 vim.opt.listchars = { eol = "\\u00ac", tab = "-->", space = "\\u00b7" }
--- Tabs
+
+-- Tabs (General Default: Tabs)
 vim.opt.expandtab = false
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 0
-vim.g.python_recommended_style = 0
+vim.opt.shiftwidth = 4
+
+-- Python specific indentation overrides (Spaces)
+vim.cmd("autocmd FileType python setlocal expandtab softtabstop=4 tabstop=4 shiftwidth=4")
 -- Diagnostics
 vim.diagnostic.config({
 	float = {
@@ -24,7 +27,7 @@ vim.diagnostic.config({
 })
 -- Start lazy.nvim
 require("jslaton.lazy")
+
 -- Background
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-
