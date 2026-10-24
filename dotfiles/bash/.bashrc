@@ -16,7 +16,7 @@ build_ps1_func() {
 PROMPT_COMMAND='build_ps1_func'
 
 # Aliases and functions
-alias gh='history | grep'
+alias hg='history | grep'
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'

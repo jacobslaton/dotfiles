@@ -12,7 +12,7 @@ function prompt {
     $promptString
 }
 
-function gh {
+function hg {
     param([string]$searchString)
     Select-String -Path (Get-PSReadlineOption).HistorySavePath -Pattern $searchString | ForEach-Object { $_.Line }
 }
