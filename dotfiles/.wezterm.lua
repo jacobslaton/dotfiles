@@ -23,8 +23,8 @@ config.hide_tab_bar_if_only_one_tab = true
 config.leader = { key = "`", mods = "NONE", timeout_milliseconds = 1000, }
 config.keys = {
 	{ key = "a", mods = "LEADER", action = act{ SendString="`" }, },
-	{ key = "-", mods = "LEADER", action = act.SplitVertical { domain = "CurrentPaneDomain" }, },
-	{ key = "=", mods = "LEADER", action = act.SplitHorizontal { domain = "CurrentPaneDomain" }, },
+	{ key = "=", mods = "LEADER", action = act.SplitVertical { domain = "CurrentPaneDomain" }, },
+	{ key = "-", mods = "LEADER", action = act.SplitHorizontal { domain = "CurrentPaneDomain" }, },
 	{ key = "h", mods = "LEADER", action = act.ActivatePaneDirection("Left"), },
 	{ key = "j", mods = "LEADER", action = act.ActivatePaneDirection("Down"), },
 	{ key = "k", mods = "LEADER", action = act.ActivatePaneDirection("Up"), },
